@@ -31,23 +31,27 @@ const App = () => {
       setVCount((prevCount) => prevCount + 1);
     } else setXCount((prevCount)=> prevCount + 1)
 
-    setPicID((prev)=> prev + 1)
-
+    if (picId <= 3) setPicID((prev)=> prev + 1)
+    else {
+      setPicID(0)
+      setXCount(0)
+      setVCount(0)
+    }
   };
 
   return (
-    <>
+    <div className="screen-wrap">
       <div className="wrapper counters-wrapper">
         <Counter count={xCount} customClass="x" />
         <Counter count={vCount} customClass="v" />
       </div>
       <Picture url={currentPicUrl} />
       <div className="wrapper bottom-wrapper">
-        <Button text="NO!" onButtonClick={clickHandler} id="no" />
+        <Button text="NO!" onButtonClick={clickHandler} id="no" picId={picId} />
         <h1>{description}</h1>
         <Button text="YES!" onButtonClick={clickHandler} id="yes" />
       </div>
-    </>
+    </div>
   );
 };
 
