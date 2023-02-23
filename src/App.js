@@ -41,6 +41,7 @@ const App = () => {
 
   return (
     <div className="screen-wrap">
+    <h1>Does the name match the TV show?</h1>
       <div className="wrapper counters-wrapper">
         <Counter count={xCount} customClass="x" />
         <Counter count={vCount} customClass="v" />
